@@ -1,0 +1,32 @@
+artisan serve を使ってる場合
+http://127.0.0.1:8000/diaries
+
+XAMPP直アクセスなら
+http://localhost/neko-diary/public/diaries
+
+
+
+作業終了時
+ターミナルを止める（artisan使ってる場合）
+Ctrl + C
+
+② XAMPPを止める（PCを閉じる場合）
+XAMPP Control Panelで：
+Apache → Stop
+MySQL → Stop
+
+
+再開するときの手順
+🔹 STEP 1：XAMPP起動
+XAMPP開く
+Apache → Start
+MySQL → Start
+両方緑にする。
+
+STEP 2：プロジェクトフォルダへ移動
+cd C:\Users\PC_User\neko-diary
+
+STEP 3：Laravel起動
+php artisan serve
+アクセス：
+http://127.0.0.1:8000/diaries
