@@ -30,3 +30,8 @@ STEP 3：Laravel起動
 php artisan serve
 アクセス：
 http://127.0.0.1:8000/diaries
+
+
+これからは作業の区切りごとに
+git add .
+git commit -m "〇〇機能追加"
