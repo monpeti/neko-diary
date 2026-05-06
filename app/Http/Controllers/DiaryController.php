@@ -37,6 +37,7 @@ class DiaryController extends Controller
             'weight' => $request->weight,
             'food_amount' => $request->food_amount,
             'image_path' => $path,
+            'date' => $request->date,
         ]);
 
         return redirect('/diaries');
@@ -71,6 +72,7 @@ class DiaryController extends Controller
             'weight' => $request->weight,
             'food_amount' => $request->food_amount,
             'image_path' => $path,
+            'date' => $request->date,
     ]);
 
         return redirect('/diaries');
@@ -84,4 +86,19 @@ class DiaryController extends Controller
 
         return redirect('/diaries');
     }
+    
+    // 日記に登録した体重をグラフで表示する
+    public function graph()
+    {
+        $diaries = \App\Models\Diary::orderBy('created_at')->get();
+        
+        $dates = $diaries->pluck('created_at')->map(function ($date) {
+            return $date->format('Y-m-d');
+            });
+            
+            $weights = $diaries->pluck('weight');
+            
+            return view('diaries.graph', compact('dates', 'weights'));
+            }
+
 }

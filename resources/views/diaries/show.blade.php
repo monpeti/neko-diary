@@ -3,6 +3,7 @@
 <p>{{ $diary->body }}</p>
 <p>体重: {{ $diary->weight }} kg</p>
 <p>ご飯量: {{ $diary->food_amount }} g</p>
+<p>投稿日：{{ \Carbon\Carbon::parse($diary->date)->format('Y/m/d') }}</p>
 
 {{-- 写真の追加 --}}
 @if ($diary->image_path)

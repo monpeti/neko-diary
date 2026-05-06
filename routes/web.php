@@ -20,3 +20,6 @@ Route::delete('/diaries/{id}', [DiaryController::class, 'destroy'])->name('diari
 
 // 日記ごとのページ遷移ルートを追加
 Route::get('/diaries/{id}', [DiaryController::class, 'show'])->name('diaries.show');
+
+// 日記に登録した体重をグラフで表示するルートを追加
+Route::get('/graph', [DiaryController::class, 'graph']);

@@ -32,5 +32,10 @@
         <img src="{{ asset('storage/' . $diary->image_path) }}" width="150">
     @endif
 
+    <div>
+        <label>日付</label><br>
+        <input type="date" name="date" value="{{ $diary->date }}">
+    </div>
+    
     <button type="submit">更新</button>
 </form>
