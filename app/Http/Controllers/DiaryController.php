@@ -75,7 +75,8 @@ class DiaryController extends Controller
             'date' => $request->date,
     ]);
 
-        return redirect('/diaries');
+        // 編集後、詳細ページにとどまるよう記載
+        return redirect()->route('diaries.show', $diary->id);
     }
 
     // 削除

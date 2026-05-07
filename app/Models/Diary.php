@@ -12,5 +12,6 @@ class Diary extends Model
         'weight',
         'food_amount',
         'image_path',
+        'date',
     ];
 }

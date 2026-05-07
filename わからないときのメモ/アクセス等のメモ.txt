@@ -33,5 +33,7 @@ http://127.0.0.1:8000/diaries
 
 
 これからは作業の区切りごとに
+git status
 git add .
 git commit -m "〇〇機能追加"
+
