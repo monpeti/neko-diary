@@ -35,5 +35,9 @@ http://127.0.0.1:8000/diaries
 これからは作業の区切りごとに
 git status
 git add .
-git commit -m "〇〇機能追加"
-
+git commit -m "タイトル、本文が空欄時のバリデーション追加
+内容：文字数制限追加
+体重の数値チェック追加
+画像サイズ制限追加
+エラーメッセージ表示対応"
+git push origin main
