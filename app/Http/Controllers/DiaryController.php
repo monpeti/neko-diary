@@ -25,26 +25,7 @@ class DiaryController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate(
-            [
-                'title' => 'required | max:50',
-                'body' => 'required | max:500',
-                'weight' => 'nullable | numeric',
-                'image' => 'nullable|image|max:5120',
-            ],
-            [
-                'title.required' => 'タイトルを入力してください。',
-                'title.max' => 'タイトルは50文字以内で入力してください',
-
-                'body.required' => '本文を入力してください。',
-                'body.max' => '本文は500文字以内で入力してください',
-
-                'weight.numeric' => '体重は数字で入力してください。',
-
-                'image.image' => '画像ファイルを選択してください',
-                'image.max' => '画像サイズは5MB以下にしてください',
-            ]
-        );
+        $this->validateDiary($request);
 
         $path = null;
 
@@ -75,26 +56,7 @@ class DiaryController extends Controller
     // 保存
     public function update(Request $request, $id)
     {
-        $request->validate(
-            [
-                'title' => 'required | max:50',
-                'body' => 'required | max:500',
-                'weight' => 'nullable | numeric',
-                'image' => 'nullable|image|max:5120',
-            ],
-            [
-                'title.required' => 'タイトルを入力してください。',
-                'title.max' => 'タイトルは50文字以内で入力してください',
-
-                'body.required' => '本文を入力してください。',
-                'body.max' => '本文は500文字以内で入力してください',
-
-                'weight.numeric' => '体重は数字で入力してください。',
-
-                'image.image' => '画像ファイルを選択してください',
-                'image.max' => '画像サイズは5MB以下にしてください',
-            ]
-        );
+        $this->validateDiary($request);
     
         $diary = Diary::findOrFail($id);
 
@@ -119,6 +81,31 @@ class DiaryController extends Controller
 
         // 編集後、詳細ページにとどまるよう記載
         return redirect()->route('diaries.show', $diary->id);
+    }
+
+    // バリデートメソッド
+    private function validateDiary(Request $request)
+    {
+        $request->validate(
+            [
+                'title' => 'required|max:50',
+                'body' => 'required|max:500',
+                'weight' => 'nullable|numeric',
+                'image' => 'nullable|image|max:5120',
+            ],
+            [
+                'title.required' => 'タイトルを入力してください。',
+                'title.max' => 'タイトルは50文字以内で入力してください',
+
+                'body.required' => '本文を入力してください。',
+                'body.max' => '本文は500文字以内で入力してください',
+
+                'weight.numeric' => '体重は数字で入力してください。',
+
+                'image.image' => '画像ファイルを選択してください',
+                'image.max' => '画像サイズは5MB以下にしてください',
+            ]
+        );
     }
 
     // 削除
