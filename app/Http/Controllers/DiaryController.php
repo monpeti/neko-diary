@@ -40,6 +40,7 @@ class DiaryController extends Controller
             'food_amount' => $request->food_amount,
             'image_path' => $path,
             'date' => $request->date,
+            'water_count' => $request->water_count,
         ]);
 
         return redirect('/diaries');
@@ -77,6 +78,7 @@ class DiaryController extends Controller
             'food_amount' => $request->food_amount,
             'image_path' => $path,
             'date' => $request->date,
+            'water_count' => $request->water_count,
     ]);
 
         // 編集後、詳細ページにとどまるよう記載
@@ -88,10 +90,11 @@ class DiaryController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required|max:50',
-                'body' => 'required|max:500',
+                'title' => 'required|max:5',
+                'body' => 'required|max:5',
                 'weight' => 'nullable|numeric',
                 'image' => 'nullable|image|max:5120',
+                'water_count' => 'nullable|integer|min:0',
             ],
             [
                 'title.required' => 'タイトルを入力してください。',

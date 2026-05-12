@@ -1,5 +1,5 @@
 @error($name)
-    <div style="color:red;">
+    <div class="text-danger mt-1">
         {{ $message }}
     </div>
 @enderror

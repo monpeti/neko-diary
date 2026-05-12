@@ -13,5 +13,6 @@ class Diary extends Model
         'food_amount',
         'image_path',
         'date',
+        'water_count',
     ];
 }
