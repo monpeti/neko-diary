@@ -8,14 +8,53 @@ use Illuminate\Support\Facades\Storage;
 
 class DiaryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $diaries = Diary::all(); // DBから全部取得
+        $query = Diary::query();
+
+        // キーワード検索
+        if ($request->keyword) {
+
+            $query->where(function ($q) use ($request) {
+
+                $q->where(
+                    'title',
+                    'like',
+                    '%' . $request->keyword . '%'
+                )
+
+                ->orWhere(
+                    'body',
+                    'like',
+                    '%' . $request->keyword . '%'
+                );
+
+            });
+        }
+
+        // 日付検索
+        if ($request->date) {
+
+            $query->whereDate(
+                'date',
+                $request->date
+            );
+        }
+
+        $diaries = $query
+            ->orderBy('date', 'desc')
+            ->get();
 
         return view('diaries.index', compact('diaries'));
     }
 
-    // 日記ごとのページ遷移
+    // 新規投稿
+    public function create()
+    {
+        return view('diaries.create');
+    }
+
+    // 日記詳細ページ
     public function show($id)
     {
         $diary = Diary::findOrFail($id);

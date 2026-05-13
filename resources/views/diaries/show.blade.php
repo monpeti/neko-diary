@@ -2,29 +2,63 @@
 
 @section('content')
 
-<h1>{{ $diary->title }}</h1>
+<div class="card shadow-sm fade-in">
 
-<p>{{ $diary->body }}</p>
-<p>体重: {{ $diary->weight }} kg</p>
-<p>ご飯量: {{ $diary->food_amount }} g</p>
-<p>水を飲んだ回数: {{ $diary->water_count }} 回</p>
-<p>投稿日：{{ \Carbon\Carbon::parse($diary->date)->format('Y/m/d') }}</p>
+    {{-- 画像 --}}
+    @if ($diary->image_path)
+        <img
+            src="{{ asset('storage/' . $diary->image_path) }}"
+            class="card-img-top"
+            style="max-height: 400px; object-fit: cover;"
+        >
+    @endif
 
-{{-- 写真の追加 --}}
-@if ($diary->image_path)
-<img src="{{ asset('storage/' . $diary->image_path) }}" width="300">
-@endif
+    <div class="card-body">
 
-<a href="{{ route('diaries.edit', $diary->id) }}">編集</a>
+        {{-- タイトル --}}
+        <h2 class="card-title mb-3">
+            {{ $diary->title }}
+        </h2>
 
-<form method="POST" action="{{ route('diaries.destroy', $diary->id) }}" 
-    onsubmit="return confirm('本当に削除しますか？')">
-    @csrf
-    @method('DELETE')
-    
-    <button class="btn btn-primary" type="submit">削除</button>
-</form>
+        {{-- 本文 --}}
+        <p class="card-text">
+            {{ $diary->body }}
+        </p>
 
-<a href="/diaries">← 一覧に戻る</a>
+        <hr>
+
+        {{-- 情報 --}}
+        <p>
+            <strong>体重:</strong>
+            {{ $diary->weight }} kg
+        </p>
+
+        <p>
+            <strong>ご飯量:</strong>
+            {{ $diary->food_amount }} g
+        </p>
+
+        <p>
+            <strong>水を飲んだ回数:</strong>
+            {{ $diary->water_count }} 回
+        </p>
+
+        <p>
+            <strong>投稿日:</strong>
+            {{ \Carbon\Carbon::parse($diary->date)->format('Y/m/d') }}
+        </p>
+
+        {{-- ボタン --}}
+        <x-link-button href="/diaries/{{ $diary->id }}/edit">
+            編集
+        </x-link-button>
+
+        <x-link-button href="/diaries">
+            一覧へ戻る
+        </x-link-button>
+
+        </div>
+    </div>
+</div>
 
 @endsection

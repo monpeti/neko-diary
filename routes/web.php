@@ -11,6 +11,9 @@ Route::get('/', function () {
 Route::get('/diaries', [DiaryController::class, 'index']);
 Route::post('/diaries', [DiaryController::class, 'store'])->name('diaries.store');
 
+// 新規投稿のルートを追加
+Route::get('/diaries/create', [DiaryController::class, 'create']);
+
 // 猫日記ページの編集ルートを追加
 Route::get('/diaries/{id}/edit', [DiaryController::class, 'edit'])->name('diaries.edit');
 Route::put('/diaries/{id}', [DiaryController::class, 'update'])->name('diaries.update');

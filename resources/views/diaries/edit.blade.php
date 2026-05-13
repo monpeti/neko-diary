@@ -10,9 +10,16 @@
     
     @include('components.diary-form')
     
-    <button class="btn btn-primary" type="submit">更新</button>
+    <x-button type="submit">
+        更新
+    </x-button>
+
+    <x-link-button href="/diaries/{{ $diary->id }}">
+        詳細へ戻る
+    </x-link-button>
+
+    </div>
 </form>
 
-<a href="/diaries">← 一覧に戻る</a>
 
 @endsection
