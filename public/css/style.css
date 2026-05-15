@@ -1,0 +1,67 @@
+/* ページ表示時のアニメーション。 */
+.fade-in {
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 日記カードの画像サイズ */
+.image-wrapper {
+    height: 300px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+}
+
+.diary-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+/* 日記カードのアニメーション */
+.diary-card {
+    transition: 0.3s;
+}
+
+/* 日記カードのhover時に浮かせる */
+.diary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ボタンのアニメーション */
+.custom-btn {
+    transition: 0.3s;
+}
+
+/* ボタンのhover時に浮かせる */
+.custom-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* ボタンクリック時の動作 */
+.custom-btn:active {
+    transform: scale(0.98);
+}
+
+/* Navbar */
+.nav-link {
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}

@@ -5,13 +5,17 @@
 <div class="card shadow-sm fade-in">
 
     {{-- 画像 --}}
-    @if ($diary->image_path)
-        <img
-            src="{{ asset('storage/' . $diary->image_path) }}"
-            class="card-img-top"
-            style="max-height: 400px; object-fit: cover;"
-        >
-    @endif
+<img
+    src="{{ $diary->image_path
+        ? asset('storage/' . $diary->image_path)
+        : asset('images/no-image.png') }}"
+    class="img-fluid rounded"
+    style="
+        max-height: 1000px;
+        object-fit: contain;
+        background-color: #f8f9fa;
+    "
+>
 
     <div class="card-body">
 
@@ -28,25 +32,33 @@
         <hr>
 
         {{-- 情報 --}}
-        <p>
-            <strong>体重:</strong>
-            {{ $diary->weight }} kg
-        </p>
+        @if ($diary->weight)
+            <p>
+                <strong>体重:</strong>
+                {{ $diary->weight }} kg
+            </p>
+        @endif
 
-        <p>
-            <strong>ご飯量:</strong>
-            {{ $diary->food_amount }} g
-        </p>
+        @if ($diary->food_amount)
+            <p>
+                <strong>ご飯量:</strong>
+                {{ $diary->food_amount }} g
+            </p>
+        @endif
 
-        <p>
-            <strong>水を飲んだ回数:</strong>
-            {{ $diary->water_count }} 回
-        </p>
+        @if ($diary->water_count !== null)
+            <p>
+                <strong>水を飲んだ回数:</strong>
+                {{ $diary->water_count }} 回
+            </p>
+        @endif
 
-        <p>
-            <strong>投稿日:</strong>
-            {{ \Carbon\Carbon::parse($diary->date)->format('Y/m/d') }}
-        </p>
+        @if ($diary->date)
+            <p>
+                <strong>投稿日:</strong>
+                {{ \Carbon\Carbon::parse($diary->date)->format('Y/m/d') }}
+            </p>
+        @endif
 
         {{-- ボタン --}}
         <x-link-button href="/diaries/{{ $diary->id }}/edit">

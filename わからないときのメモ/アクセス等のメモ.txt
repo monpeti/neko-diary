@@ -35,12 +35,13 @@ http://127.0.0.1:8000/diaries
 これからは作業の区切りごとに
 git status
 git add .
-git commit -m "投稿画面追加とUI改善、検索機能を実装"
-内容：投稿フォーム画面追加
-show/index改善
-カードUI
-Navbar
-fade-in
-検索機能
-ボタンcomponent化"
+git commit -m "検索機能強化と日記カード表示周りを改善
+内容：検索結果ページ
+0件表示
+クリア機能
+card component化
+デフォルト画像
+画像比率調整
+CSS分離
+ボタン位置修正"
 git push origin main

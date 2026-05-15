@@ -14,21 +14,17 @@ class DiaryController extends Controller
 
         // キーワード検索
         if ($request->keyword) {
-
             $query->where(function ($q) use ($request) {
-
                 $q->where(
                     'title',
                     'like',
                     '%' . $request->keyword . '%'
                 )
-
                 ->orWhere(
                     'body',
                     'like',
                     '%' . $request->keyword . '%'
                 );
-
             });
         }
 
@@ -123,6 +119,50 @@ class DiaryController extends Controller
         // 編集後、詳細ページにとどまるよう記載
         return redirect()->route('diaries.show', $diary->id);
     }
+
+    // 日記検索メソッド
+    public function search(Request $request)
+    {
+        $query = Diary::query();
+
+        // キーワード検索
+        if ($request->keyword) {
+
+            $query->where(function ($q) use ($request) {
+
+                $q->where(
+                    'title',
+                    'like',
+                    '%' . $request->keyword . '%'
+                )
+
+                ->orWhere(
+                    'body',
+                    'like',
+                    '%' . $request->keyword . '%'
+                );
+
+            });
+    }
+
+    // 日付検索
+    if ($request->date) {
+
+        $query->whereDate(
+            'date',
+            $request->date
+        );
+    }
+
+    $diaries = $query
+        ->orderBy('date', 'desc')
+        ->get();
+
+    return view(
+        'diaries.search',
+        compact('diaries')
+    );
+}
 
     // バリデートメソッド
     private function validateDiary(Request $request)
