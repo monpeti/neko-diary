@@ -1,3 +1,7 @@
+body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+
 /* ページ表示時のアニメーション。 */
 .fade-in {
     animation: fadeIn 1s ease;
@@ -32,24 +36,28 @@
 
 /* 日記カードのアニメーション */
 .diary-card {
+    border: none;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: #fffaf4;
     transition: 0.3s;
 }
 
 /* 日記カードのhover時に浮かせる */
 .diary-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 /* ボタンのアニメーション */
 .custom-btn {
-    transition: 0.3s;
+    background-color: #d4a373;
+    border: none;
+    border-radius: 12px;
 }
 
-/* ボタンのhover時に浮かせる */
 .custom-btn:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
+    background-color: #ccd5ae;
 }
 
 /* ボタンクリック時の動作 */
@@ -58,6 +66,10 @@
 }
 
 /* Navbar */
+.navbar {
+    background-color: #d4a373;
+}
+
 .nav-link {
     transition: 0.3s;
 }

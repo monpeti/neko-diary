@@ -15,13 +15,21 @@ class DiaryController extends Controller
         // キーワード検索
         if ($request->keyword) {
             $query->where(function ($q) use ($request) {
+                // タイトル
                 $q->where(
                     'title',
                     'like',
                     '%' . $request->keyword . '%'
                 )
+                // 本文
                 ->orWhere(
                     'body',
+                    'like',
+                    '%' . $request->keyword . '%'
+                )
+                // タグ
+                ->orWhere(
+                    'tag',
                     'like',
                     '%' . $request->keyword . '%'
                 );
@@ -76,6 +84,7 @@ class DiaryController extends Controller
             'image_path' => $path,
             'date' => $request->date,
             'water_count' => $request->water_count,
+            'tag' => $request->tag,
         ]);
 
         return redirect('/diaries');
@@ -114,6 +123,7 @@ class DiaryController extends Controller
             'image_path' => $path,
             'date' => $request->date,
             'water_count' => $request->water_count,
+            'tag' => $request->tag,
     ]);
 
         // 編集後、詳細ページにとどまるよう記載
@@ -129,19 +139,24 @@ class DiaryController extends Controller
         if ($request->keyword) {
 
             $query->where(function ($q) use ($request) {
-
+                // タイトル
                 $q->where(
                     'title',
                     'like',
                     '%' . $request->keyword . '%'
                 )
-
+                // 本文
                 ->orWhere(
                     'body',
                     'like',
                     '%' . $request->keyword . '%'
+                )
+                // タグ
+                ->orWhere(
+                    'tag',
+                    'like',
+                    '%' . $request->keyword . '%'
                 );
-
             });
     }
 

@@ -46,6 +46,15 @@
                             </p>
                         @endif
 
+                        @if ($diary->tag)
+                            <a
+                                href="/diaries/search?keyword={{ $diary->tag }}"
+                                class="badge rounded-pill text-bg-warning">                       
+                                #{{ $diary->tag }}
+                            </a>                        
+                        
+                        @endif
+
                         @if ($diary->date)
                             <p class="text-muted small mb-3">
                                 投稿日:

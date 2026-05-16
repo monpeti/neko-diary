@@ -14,5 +14,6 @@ class Diary extends Model
         'image_path',
         'date',
         'water_count',
+        'tag',
     ];
 }

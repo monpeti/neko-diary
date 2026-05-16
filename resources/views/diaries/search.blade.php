@@ -3,7 +3,7 @@
 @section('content')
 
 <h1 class="mb-4">
-    検索結果
+    投稿日記一覧
 </h1>
 
 <div class="row">

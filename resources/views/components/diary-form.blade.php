@@ -64,6 +64,17 @@
             @include('components.error-message', ['name' => 'image'])
     </div>
 
+    {{-- タグの追加 --}}
+    <div class="mb-2">
+        <label>タグ</label><br>
+        <input
+            class="form-control @error('tag') is-invalid @enderror"
+            type="text"
+            name="tag"
+            value="{{ old('tag', $diary->tag ?? '') }}"
+            placeholder="例: 病院">
+</div>
+
     {{-- 投稿日 --}}
     <div class="mb-3">
         <label>日付</label><br>

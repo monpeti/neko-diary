@@ -35,7 +35,8 @@ http://127.0.0.1:8000/diaries
 これからは作業の区切りごとに
 git status
 git add .
-git commit -m "検索機能強化と日記カード表示周りを改善
+git commit -m "タグの追加
+UI の変更
 内容：検索結果ページ
 0件表示
 クリア機能

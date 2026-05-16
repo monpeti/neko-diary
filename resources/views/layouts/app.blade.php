@@ -17,11 +17,17 @@
         rel="stylesheet"
         href="{{ asset('css/style.css') }}">
 
+    {{-- Google Fonts --}}
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap"
+        rel="stylesheet">
+
 </head>
 <body>
 
     {{-- Navbar --}}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    {{-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> --}}
+        <nav class="navbar navbar-expand-lg">
 
         <div class="container">
 

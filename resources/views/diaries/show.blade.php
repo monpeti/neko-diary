@@ -13,9 +13,7 @@
     style="
         max-height: 1000px;
         object-fit: contain;
-        background-color: #f8f9fa;
-    "
->
+        background-color: #f8f9fa;">
 
     <div class="card-body">
 
@@ -51,6 +49,16 @@
                 <strong>水を飲んだ回数:</strong>
                 {{ $diary->water_count }} 回
             </p>
+        @endif
+
+        @if ($diary->tag)
+
+            <a
+                href="/diaries/search?keyword={{ $diary->tag }}"
+                class="badge rounded-pill text-bg-warning">
+                #{{ $diary->tag }}
+            </a>
+        
         @endif
 
         @if ($diary->date)
