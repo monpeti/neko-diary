@@ -45,9 +45,8 @@ class DiaryController extends Controller
             );
         }
 
-        $diaries = $query
-            ->orderBy('date', 'desc')
-            ->get();
+        $diaries = Diary::orderBy('date', 'desc')
+            ->paginate(6);
 
         return view('diaries.index', compact('diaries'));
     }
@@ -178,6 +177,19 @@ class DiaryController extends Controller
         compact('diaries')
     );
 }
+
+    // アルバムページ
+    public function album()
+    {
+        $diaries = Diary::whereNotNull('image_path')
+            ->latest()
+            ->get();
+
+            return view(
+            'diaries.album',
+            compact('diaries')
+        );
+    }
 
     // バリデートメソッド
     private function validateDiary(Request $request)

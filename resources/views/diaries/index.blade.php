@@ -1,27 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="d-flex justify-content-between align-items-center mb-4">
 
-<h1>日記投稿</h1>
+        <h1>
+            日記一覧
+        </h1>
 
-<x-link-button href="/diaries/create">
-    新規投稿
-</x-link-button>
+        {{-- <span class="badge bg-secondary fs-6">
 
-<h2>一覧</h2>
+            {{ $diaries->count() }}件の日記
 
-<div class="row">
+        </span> --}}
 
-    @foreach ($diaries as $diary)
+    </div>
     
+    <x-link-button href="/diaries/create">
+        新規投稿
+    </x-link-button>
+    
+    <div class="row">
+        
+        @foreach ($diaries as $diary)
+        
         <x-diary-card :diary="$diary" />
+        
+        @endforeach
+        
+    </div>
 
-    @endforeach
+    <div class="mt-4">
 
-</div>
+        {{ $diaries->links() }}
 
-<x-link-button href="/graph">
-    体重グラフ
-</x-link-button>
+    </div>
+    
+    {{-- <x-link-button href="/graph">
+        体重グラフ
+    </x-link-button> --}}
 
 @endsection

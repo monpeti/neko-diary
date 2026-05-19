@@ -30,3 +30,5 @@ Route::delete('/diaries/{id}', [DiaryController::class, 'destroy'])->name('diari
 // 日記ごとのページ遷移ルートを追加
 Route::get('/diaries/{id}', [DiaryController::class, 'show'])->name('diaries.show');
 
+// アルバムのルートを追加
+Route::get('/album', [DiaryController::class, 'album']);

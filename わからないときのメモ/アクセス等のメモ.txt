@@ -35,14 +35,8 @@ http://127.0.0.1:8000/diaries
 これからは作業の区切りごとに
 git status
 git add .
-git commit -m "タグの追加
-UI の変更
-内容：検索結果ページ
-0件表示
-クリア機能
-card component化
-デフォルト画像
-画像比率調整
-CSS分離
-ボタン位置修正"
+git commit -m "内容：
+アルバムページを追加
+背景アニメーションを追加
+ページ読み込み時のアニメーションを追加"
 git push origin main

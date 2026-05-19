@@ -6,6 +6,10 @@
     投稿日記一覧
 </h1>
 
+<p class="text-muted">
+    検索結果: {{ $diaries->count() }} 件
+</p>
+
 <div class="row">
 
     @forelse ($diaries as $diary)

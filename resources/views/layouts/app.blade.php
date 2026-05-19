@@ -22,12 +22,29 @@
         href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap"
         rel="stylesheet">
 
+    <link
+        href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+        rel="stylesheet"/>
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
 </head>
 <body>
 
+    <div class="background-animation">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
     {{-- Navbar --}}
-    {{-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> --}}
-        <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
 
         <div class="container">
 
@@ -47,6 +64,10 @@
 
                     <a class="nav-link" href="/diaries/create">
                         新規投稿
+                    </a>
+
+                    <a class="nav-link" href="/album">
+                        アルバム
                     </a>
 
                     <a class="nav-link" href="/graph">
@@ -90,6 +111,21 @@
     <div class="container mt-4">
         @yield('content')
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+    <script>
+        const lightbox = GLightbox();
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+    </script>
 
 </body>
 </html>

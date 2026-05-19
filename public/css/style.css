@@ -1,5 +1,72 @@
 body {
+    background-color: #f6f6fd;
+    color: #5c4b3b;
     font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+/* 背景アニメーション */
+.background-animation {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: -1;
+}
+
+.background-animation span {
+    position: absolute;
+
+    display: block;
+
+    width: 200px;
+    height: 200px;
+
+    background:  #d4a373;
+
+    border-radius: 50%;
+
+    animation: float 20s linear infinite;
+}
+
+.background-animation span:nth-child(1) {
+    top: 10%;
+    left: 10%;
+}
+
+.background-animation span:nth-child(2) {
+    top: 60%;
+    left: 70%;
+}
+
+.background-animation span:nth-child(3) {
+    top: 30%;
+    left: 80%;
+}
+
+.background-animation span:nth-child(4) {
+    top: 80%;
+    left: 20%;
+}
+
+.background-animation span:nth-child(5) {
+    top: 50%;
+    left: 40%;
+}
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 /* ページ表示時のアニメーション。 */
@@ -76,4 +143,105 @@ body {
 
 .nav-link:hover {
     opacity: 0.7;
+}
+
+/* アルバム */
+.masonry {
+    column-count: 3;
+    column-gap: 16px;
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 16px;
+}
+
+.album-image {
+    width: 100%;
+    border-radius: 16px;
+    transition: 0.3s;
+}
+
+.album-image:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.album-link {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.album-image {
+    width: 100%;
+    border-radius: 16px;
+    transition: 0.3s;
+    display: block;
+}
+
+.detail-button {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s;
+}
+
+.album-link:hover .detail-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.album-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    color: white;
+
+    opacity: 0;
+
+    transition: 0.3s;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    padding: 20px;
+
+    pointer-events: none;
+}
+
+.album-overlay .btn {
+    pointer-events: auto;
+}
+
+.album-link:hover .album-overlay {
+    opacity: 1;
+}
+
+.album-link:hover .album-image {
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+
+    .masonry {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .masonry {
+        column-count: 1;
+    }
+}
+
+
+
+/* paginationを隠す */
+nav p.small {
+    display: none;
 }
