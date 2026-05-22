@@ -9,8 +9,10 @@
 <body>
     
     <h1>体重グラフ</h1>
-    
-    <button onclick="location.href='/diaries'">一覧に戻る</button>
+
+    <x-link-button href="/diaries">
+        一覧に戻る
+    </x-link-button>
     
     <canvas id="weightChart"></canvas>
     

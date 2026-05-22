@@ -15,9 +15,11 @@
 
     </div>
     
-    <x-link-button href="/diaries/create">
-        新規投稿
-    </x-link-button>
+    <div class="mb-4">
+        <x-link-button href="/diaries/create">
+            新規投稿
+        </x-link-button>
+    </div>
     
     <div class="row">
         
