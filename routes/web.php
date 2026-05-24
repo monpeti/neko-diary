@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DiaryController; // 猫日記ページのルートを追加
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/diaries');
 });
 
 // 猫日記ページのルートを追加
