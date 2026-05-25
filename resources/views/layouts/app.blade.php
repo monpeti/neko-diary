@@ -4,6 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="猫日記">
+    <meta property="og:description" content="猫日記サイト">
+    <meta property="og:image" content="https://catdiary.xsrv.jp/ogp.png">
+    <meta property="og:url" content="https://catdiary.xsrv.jp">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="/favicon.png">
 
     <title>猫日記</title>
 

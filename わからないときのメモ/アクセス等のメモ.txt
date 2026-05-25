@@ -35,8 +35,7 @@ http://127.0.0.1:8000/diaries
 これからは作業の区切りごとに
 git status
 git add .
-git commit -m "レスポンシブ対応実装
-Loading演出追加
-右下に猫アニメーションを追加
-Navbarのレスポンシブレイアウト調整"
+git commit -m "root変更"
 git push origin main
+
+
